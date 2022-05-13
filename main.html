@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<!-- Code written by Alexander Wu
+With help from https://www.youtube.com/channel/UCFbNIlppjAuEX4znoulh0Cw
+  -->
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+    body{
+      height: 100vh;
+      width: 100vw;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin:0;
+      background-color:  black;
+      background-image: url("background.jpg");
+      background-size: cover;
+       background-position: right;
+    }
+    #gameboard{
+      background-color: #CCC;
+      width:95vmin;
+          height:95vmin;
+          display: grid;
+          grid-template-rows: repeat(21,1fr);
+          grid-template-columns: repeat(21,1fr);
+
+    }
+    .snake{
+      background-color: hsl(200,100%,50%);
+      border:.25vmin solid black;
+    }
+    .food{
+            background-image: url("food.png");
+              background-size: cover;
+  }
+  .head{
+    background-color: hsl(210,100%,50%);
+    border:.25vmin solid black;
+  }
+
+
+    </style>
+  </head>
+
+  <body>
+    <div>
+      <legend>Snake Expansion Rate </legend>
+    <br>
+
+      <input type="range" min="1" max="10" value="5" class="slider" id="EXPANSION_RATE">
+    <br>
+      <legend>Snake Speed </legend>
+    <br>
+
+      <input type="range" min="5" max="15" value="10" class="slider" id="SpeedSlider">
+    </div>
+
+
+
+
+
+      <div id = "gameboard"></div>
+    <!-- No saviour from on high delivers,
+    No faith have we in prince or peer.
+    Our own right hand the chains must shiver,
+    Chains of hatred, greed and fear.
+    E'er the thieves will out with their booty,
+    And to all give a happier lot.
+    Each at his forge must do their duty,
+    And we'll strike the iron while it's hot. -->
+    <html lang="en" dir="ltr">
+    <script src ="game.js" defer >
+
+
+    </script>
+  </body>
+</html>
