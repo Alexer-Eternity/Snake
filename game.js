@@ -157,6 +157,7 @@ function updateSnake(){
 
 
 function drawSnake(gameBoard){
+  if (gameOver) return;
   head_finished = true
   gameBoard.innerHTML =""
  //Loop through each segment of the snake,
