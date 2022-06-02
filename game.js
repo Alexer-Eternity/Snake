@@ -188,9 +188,9 @@ function main(currentTime){
   if (gameOver){
     //console.log("hit")
     //Waits until user press OK
-    if(confirm("You lost. Press OK to restart.")){
-        //resets the window
-      window.location ='./main.html'
+    alert("Your time has come");
+    snakeBody=[{x:11,y:11}]
+    food = getRandomFoodPosition()
     }
     return
   }
