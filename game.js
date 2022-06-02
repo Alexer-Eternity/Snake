@@ -192,7 +192,6 @@ function main(currentTime){
     snakeBody=[{x:11,y:11}]
     food = getRandomFoodPosition()
     }
-    return
   }
   window.requestAnimationFrame(main)
   const SinceLastRender = (currentTime - lastRenderTime) /1000
