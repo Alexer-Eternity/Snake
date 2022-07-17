@@ -127,12 +127,7 @@ bool search(Random snake[], Random value)
 int render()
 {
     Random CurrentPosition;
-// os independent code
-#ifdef _WIN32
-    system("cls");
-#else
-    system("clear");
-#endif
+cout<<\f;
     char c[5] = {'#', '@', 'o', ' ','O'};
     short id;
     for (int y = 1; y <= terminalY; y++)
