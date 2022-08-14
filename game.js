@@ -4,23 +4,19 @@ const snakeBody=[{x:11,y:11}]
 let EXPANSION_RATE = 5
 const GRID_SIZE = 21
 let newSegments =0
-//e => { } is short for function(e){ }
 let inputDirection ={x : 0 ,y :0 }
 let food = getRandomFoodPosition()
 let gameOver = false
 
 
-var ExpansionSlider = document.getElementById("EXPANSION_RATE");// Display the default slider value
+var ExpansionSlider = document.getElementById("EXPANSION_RATE");
 
-// Update the current slider value (each time you drag the slider handle)
 ExpansionSlider.oninput = function() {
   EXPANSION_RATE = this.value;
   console.log("Success")
 }
 
-var ExpansionSlider = document.getElementById("SpeedSlider");// Display the default slider value
-
-// Update the current slider value (each time you drag the slider handle)
+var ExpansionSlider = document.getElementById("SpeedSlider");
 ExpansionSlider.oninput = function() {
   snakeSpeed = this.value;
   console.log("Success")
@@ -84,7 +80,6 @@ function equalPositions(pos1,pos2){
 }
 
 function getRandomFoodPosition(){
-    //console.log(randomGridPosition())
   let newFoodPosition
   while (newFoodPosition == null || onSnake(newFoodPosition)){
     newFoodPosition = randomGridPosition()
@@ -94,7 +89,6 @@ function getRandomFoodPosition(){
 
 function addSegments(){
   for (let i = 0;i < newSegments; i++){
-//The push() method adds one or more elements to the end of an array and returns the new length of the array.
     snakeBody.push({...snakeBody[snakeBody.length-1]})
   }
   newSegments = 0
@@ -126,11 +120,9 @@ function updateFood(){
 
 
 function drawFood(gameBoard){
- //console.log("draw")
 
 
     const foodElement = document.createElement("div")
-    //specifies the food segments dposition within the css grid
     foodElement.style.gridRowStart =food.y
     foodElement.style.gridColumnStart =food.x
 
@@ -147,10 +139,8 @@ function updateSnake(){
   addSegments()
   const inputDirection = getInputDirection()
   for (let i = snakeBody.length- 2; i >= 0;i-- ){
-//give each of segments the prevous segments' properties
   snakeBody[i+1] = {...snakeBody[i]}
 }
- //gives the head segment new properties
   snakeBody[0].x+= inputDirection.x
   snakeBody[0].y+= inputDirection.y
 }
@@ -160,17 +150,13 @@ function drawSnake(gameBoard){
   if (gameOver) return;
   head_finished = true
   gameBoard.innerHTML =""
- //Loop through each segment of the snake,
- //forEach calls a function for each element in an array
- // With "snakeBody" being the array and "segment" being the function
+
   snakeBody.forEach(segment =>{
     const snakeElement = document.createElement("div")
     if (head_finished && !gameOver){
         snakeElement.classList.add('head')
         head_finished = false
     }
-//segment stores the individal variables with in the snakeBody array
-//specifies the snakes segments' position within the css grid
     snakeElement.style.gridRowStart =segment.y
     snakeElement.style.gridColumnStart =segment.x
 
@@ -186,8 +172,6 @@ let lastRenderTime = 0
 const gameBoard = document.getElementById("gameboard")
 function main(currentTime){
   if (gameOver){
-    //console.log("hit")
-    //Waits until user press OK
     alert("Your time has come");
     snakeBody=[{x:11,y:11}]
     food = getRandomFoodPosition()
@@ -195,7 +179,7 @@ function main(currentTime){
   }
   window.requestAnimationFrame(main)
   const SinceLastRender = (currentTime - lastRenderTime) /1000
-  //Renders the frames accroding tho the snakeSpeed
+ 
   if(SinceLastRender < 1/snakeSpeed) return
 
   lastRenderTime = currentTime
